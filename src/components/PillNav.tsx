@@ -175,6 +175,18 @@ export default function PillNav({
               {item.label}
             </Link>
           ))}
+
+          {/* KingsMan External Link for Mobile */}
+          <a
+            href="https://stb-project.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block px-4 py-2 text-sm font-medium text-white hover:bg-blue-500 hover:text-white"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            KingsMan
+          </a>
+
           {/* ✅ Show Logout button only when logged in */}
           {session && (
             <button
