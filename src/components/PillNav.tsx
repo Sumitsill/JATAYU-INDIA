@@ -89,7 +89,7 @@ export default function PillNav({
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 ${className}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20"> {/* Modified justify-center to justify-between */}
+        <div className="relative flex items-center justify-between h-20"> {/* Added relative for absolute positioning of children */}
           {logo && (
             <Link to="/" className="flex-shrink-0">
               <img src={logo} alt={logoAlt} className="h-10 w-auto" />
@@ -110,7 +110,7 @@ export default function PillNav({
           </div>
 
           {/* Navigation Pills */}
-          <div className="hidden md:flex items-center gap-1 bg-white/5 backdrop-blur-md rounded-full px-2 py-2 border border-white/10 mx-auto"> {/* Hidden on mobile, flex on desktop, centered */}
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-1 bg-white/5 backdrop-blur-md rounded-full px-2 py-2 border border-white/10"> {/* Absolute centered */}
             <div
               ref={pillRef}
               className="absolute h-10 rounded-full transition-all duration-300"
@@ -148,6 +148,17 @@ export default function PillNav({
               </button>
             )}
           </div>
+
+
+          {/* KingsMan External Link */}
+          <a
+            href="https://stb-project.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block text-white font-medium hover:text-red-500 transition-all duration-300 ml-4 border border-white/20 px-6 py-2 rounded-full hover:border-red-500 hover:bg-white/5"
+          >
+            KingsMan
+          </a>
         </div>
       </div>
 
@@ -178,6 +189,6 @@ export default function PillNav({
           )}
         </div>
       </div>
-    </nav>
+    </nav >
   );
 }
